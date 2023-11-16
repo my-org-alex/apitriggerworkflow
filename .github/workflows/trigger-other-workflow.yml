@@ -6,8 +6,11 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
       - name: Run the action to trigger the other workflow
-        uses: ./C:/Users/alexanrodrigues/apitriggerworkflow/.github/actions/api_call
+        uses: ./.github/actions/api_call/action.yml
         with:
           token: ${{ secrets.personal_token }}
           workflow: "https://api.github.com/repos/alexanrodrigues/apitriggerworkflow/actions/workflows/example-workflow.yml/dispatches"
