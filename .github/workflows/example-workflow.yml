@@ -1,8 +1,15 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+on: 
+  workflow_dispatch:
+    inputs:
+      phrase:
+        description: 'Phrase to be echo'ed when running the workflow'
+        type: string
+        required: false
+        default: 'Hello World!'
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "This workflow works"
+      - run: echo ${{ inputs.phrase }}
