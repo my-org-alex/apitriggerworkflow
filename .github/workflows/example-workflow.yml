@@ -3,15 +3,15 @@ name: Workflow triggered by API Call
 on:
   workflow_dispatch:
     inputs:
-      phrase:
+      message:
         description: 'Phrase to be echoed when running the workflow'
         type: string
         required: false
         default: 'Hello World!'
 
 jobs:
-  Explore-GitHub-Actions:
+  Echo-Message:
     runs-on: ubuntu-latest
     steps:
       - name: Echo Phrase
-        run: echo "${{ inputs.phrase }}"
+        run: echo "${{ inputs.message }}"
