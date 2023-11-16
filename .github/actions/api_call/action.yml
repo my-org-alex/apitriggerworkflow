@@ -21,7 +21,8 @@ inputs:
     required: false
     default: 'Hello World!'
 
-runs: 
+runs:
+  using: composite
   steps:
     - name: API Call
       shell: bash
