@@ -1,15 +1,17 @@
 name: GitHub Actions Demo
-on: 
+
+on:
   workflow_dispatch:
-  inputs:
-    phrase:
-      description: 'Phrase to be echo'ed when running the workflow'
-      type: string
-      required: false
-      default: 'Hello World!'
+    inputs:
+      phrase:
+        description: 'Phrase to be echoed when running the workflow'
+        type: string
+        required: false
+        default: 'Hello World!'
 
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ inputs.phrase }}
+      - name: Echo Phrase
+        run: echo "${{ inputs.phrase }}"
