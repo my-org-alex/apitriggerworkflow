@@ -1,4 +1,4 @@
-name: GitHub Actions Demo
+name: Workflow triggered by API Call
 
 on:
   workflow_dispatch:

@@ -2,20 +2,31 @@ name: Make API Call
 description: Makes an API Call in order to trigger a workflow
 
 inputs:
-  repo:
-    description: 'Repository where the workflow is located'
-    type: string
-    required: true
   token:
     description: 'Personal Token'
     type: string
+    required: true  
+  workflow:
+    description: 'Repository where the workflow is located'
+    type: string
     required: true
+  branch:
+    description: 'Branch where the workflow will run'
+    type: string
+    required: false
+    default: 'main'
+  message:
+    description: 'Message to serve as output in the workflow'
+    type: string
+    required: false
+    default: 'Hello World!'
 
 runs: 
   steps:
     name: API Call
     shell: bash
     run:
-      curl -X POST -H "Accept: application/vnd.github.v3+json" \
+      curl -X POST -H "Accept: application/json" \
       -H "Authorization: token ${{ inputs.token }}" \
-      ${{ inputs.repo }} 
+      ${{ inputs.workflow }} \
+      -d '{"ref":${{ $inputs.branch }}, "inputs": {"message": ${{ inputs.message }}}}'
