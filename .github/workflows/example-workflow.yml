@@ -21,7 +21,7 @@ jobs:
         shell: bash
         run: 
           echo "Approval required to proceed"
-          approval=$(curl -s -X POST -H "Authorization: token ${{ inputs.token }}" https://api.github.com/repos/alexanrodrigues/apitriggerworkflow/actions/runs/$GITHUB_RUN_ID/approve)
+          approval=$(curl -s -X POST -H "Authorization: token ${{ inputs.token }}" "https://api.github.com/repos/alexanrodrigues/apitriggerworkflow/actions/runs/$GITHUB_RUN_ID/approve")
 
           if [ "$approval" = "approved"]; then
             echo "Approved. Workflow will resume."
