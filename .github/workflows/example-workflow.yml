@@ -2,7 +2,7 @@ name: Workflow triggered by API Call
 
 on:
   workflow_dispatch:
-   # inputs:
+    inputs:
    #   token:
    #     description: 'Personal Token'
    #     type: string
