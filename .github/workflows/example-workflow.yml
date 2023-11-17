@@ -15,7 +15,7 @@ on:
 
 jobs:
   Approval_Gate:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Recieve Approval
         shell: bash
