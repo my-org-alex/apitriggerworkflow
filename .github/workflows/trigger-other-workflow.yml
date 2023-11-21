@@ -5,19 +5,13 @@ on: push
 jobs:
   Approval_Gate:
     runs-on: ubuntu-latest
+    environment: 'manual-approval'
     steps:
       - name: Recieve Approval
         shell: bash
         run: 
           echo "Approval required to proceed"
-          #approval=$(curl -s -X POST -H "Authorization: token ${{ inputs.token }}" "https://api.github.com/repos/alexanrodrigues/apitriggerworkflow/actions/runs/$GITHUB_RUN_ID/approve")
-
-          #if [ "$approval" = "approved"]; then
-          #  echo "Approved. Workflow will resume."
-          #else
-          #  echo "Denied. Exiting workflow."
-          #  exit 1
-          #fi
+          
   Run_Action:
     runs-on: ubuntu-latest
     needs: Approval_Gate
