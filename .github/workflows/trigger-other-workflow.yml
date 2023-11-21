@@ -14,5 +14,5 @@ jobs:
         uses: ./.github/actions/api_call
         with:
           token: ${{ secrets.personal_token }}
-          workflow: "https://api.github.com/repos/alexanrodrigues/apitriggerworkflow/actions/workflows/example-workflow.yml/dispatches"
+          workflow: "https://github.com/my-org-alex/apitriggerworkflow/actions/workflows/example-workflow.yml/dispatches"
           message: "THIS WORKS!"
