@@ -10,7 +10,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Run the action to trigger example-workflow
+      - name: Trigger new workflow
         uses: ./.github/actions/api_call
         with:
           token: ${{ secrets.personal_token }}
