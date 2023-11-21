@@ -1,12 +1,9 @@
 name: Workflow triggered by API Call
+run-name: Triggered by API Call
 
 on:
   workflow_dispatch:
     inputs:
-   #   token:
-   #     description: 'Personal Token'
-   #     type: string
-   #     required: true  
       message:
         description: 'Phrase to be echoed when running the workflow'
         type: string
