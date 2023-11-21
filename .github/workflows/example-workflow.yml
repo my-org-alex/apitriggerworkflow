@@ -8,7 +8,7 @@ on:
    #     type: string
    #     required: true  
       message:
-        description: 'Phrase to be echoed when running the workflow'
+        description: 'to be echoed when running the workflow'
         type: string
         required: false
         default: 'Hello World!'
