@@ -1,0 +1,44 @@
+name: Make API Call
+description: Makes an API Call in order to trigger a workflow
+
+inputs:
+  token:
+    description: 'Personal Token'
+    type: string
+    required: true  
+  repo:
+    description: 'Path for the repository'
+    type: string
+    required: true
+  run_id:
+    description: 'ID of the run to be reviewed'
+    type: string
+    required: true
+  env_id:
+    description: 'ID of the environment'
+    type: string
+    required: true
+  state:
+    description: 'State of the review'
+    type: string
+    required: false
+    default: 'denied'
+  comment:
+    description: 'Comment added to the review'
+    type: string
+    required: false
+    default: ''
+
+runs:
+  using: composite
+  steps:
+    - name: API Call
+      shell: bash
+      run: |
+        curl -L \
+        -X POST \
+        -H "Accept: application/vnd.github+json" \
+        -H "Authorization: token ${{ inputs.token }} " \
+        -H "X-GitHub-Api-Version: 2022-11-28" \
+        ${{ inputs.repo }}/${{ inputs.run_id }}/pending_deployments \
+        -d '{"environment_ids":[${{ inputs.env_id }}],"state":"${{ inputs.state }}","comment":"${{ inputs.message }}"}'

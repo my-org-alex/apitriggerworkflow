@@ -1,4 +1,4 @@
-name: Make API Call
+name: Trigger workflow
 description: Makes an API Call in order to trigger a workflow
 
 inputs:
