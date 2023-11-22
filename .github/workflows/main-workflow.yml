@@ -15,4 +15,4 @@ jobs:
         with:
           token: ${{ secrets.personal_token }}
           workflow: "https://api.github.com/repos/my-org-alex/apitriggerworkflow/actions/workflows/called-workflow.yml/dispatches"
-          message: "hello"
+          message: "demo"
